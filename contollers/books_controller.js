@@ -26,7 +26,7 @@ let abook = {
     "author" : req.body.author
 }
 
-
+                                                                                                                                                                                                                                                                    
 Book.create(abook).then((book)=>{
     res.status(201).json(book)
 })
@@ -101,5 +101,6 @@ const putonebook = (req,res,next) =>{
     .catch(next)
 
 }
+
 
 module.exports = {getAllBooks,postnewbooks,putbook,deletebooks,getonebook,postonebook,deletebook,putonebook}

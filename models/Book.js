@@ -1,4 +1,5 @@
 const mongoose =  require("mongoose")
+const Category = require("./category")
 
 const reviewschema = mongoose.Schema({
     body :{
@@ -24,7 +25,12 @@ const bookSchema =  mongoose.Schema({
         required  : true,
 
     },
-    reviews : [reviewschema]
-})
+    
+    reviews : [reviewschema],
+    category:{
+        type:mongoose.Schema.Types.ObjectId,
+    }
+},
+    {timestamps:true})
 
 module.exports = mongoose.model('Book',bookSchema)
