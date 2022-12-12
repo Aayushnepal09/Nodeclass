@@ -25,8 +25,28 @@ const createReview = (req,res,next) =>{
     .catch(next)
 
 }
+const getReviewById=(req,res,next)=> {
+    Book.findById(req.params.id)
+    .then((Book)=>{
 
+        }
+    )
+
+}
+const updateReviewById=(req,res,next)=>{
+    Book.findById(req.params.id)
+    .then((Book)=>{
+
+        }
+    )
+
+}
 const deleteReview = (req,res,next) =>{
+    Book.findById(req.params.id)
+    .then((Book)=>{
+
+        }
+    )
 
 }
 

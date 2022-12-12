@@ -42,7 +42,7 @@
 
 
 const express = require('express')
-const logger = require('./looger')
+// const logger = require('./looger')
 const app = express()
 const path =  require('path')
 const port = 3000;
@@ -59,10 +59,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/books')
 
 
 
-app.use((req,res,next)=>{
-
-    next()
-})
+// app.use((req,res,next)=>{
+//     next()
+// })
 
 app.use(express.json())
 
