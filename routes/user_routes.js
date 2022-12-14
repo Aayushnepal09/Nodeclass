@@ -12,7 +12,7 @@ router.post('/register',(req,res,next)=>{
     User.findOne({username:req.body.username}
         .then(user=>{
             if(user != null){
-                let err=new Error('User ${req.body.username}already exists.')
+                let err=new Error(`User ${req.body.username}already exists.`)
                return next(new (err))
             }
             bcrypt.hash(req.body.password,10,(err,hash)=>{
