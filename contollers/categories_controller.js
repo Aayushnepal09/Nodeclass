@@ -31,8 +31,10 @@ const deleteCategory= (req,res,next) =>{
     .catch(next)
 
 }
+
 const getallCategoryById=(req,res,next) =>{
     category.findById(req.params.caegory_id)
+    .populate('books')
     .then(category=>res.json(category))
     .catch(next)
 
@@ -51,6 +53,7 @@ const deleteCategoryById=(req,res,next) =>{
     .catch(next)
 
 }
+
 
 module.exports={
     getallCategory,
