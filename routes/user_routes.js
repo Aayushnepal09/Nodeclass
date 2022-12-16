@@ -36,6 +36,21 @@ router.post('/register',(req,res,next)=>{
 
 })
 router.post('/login',(req,res,next)=>{
+    User.findOne({username:req.body.username})
+    .then (user=> {
+        if (user==null){
+        let err=new err (`User ${req.body.username} has not been registered`)
+        return next(err)
+    }
+    bcrypt.compare(req.body.password,user.password,(err,status)=>{
+        if (err)return next(err)
+        if(!status){
+            let err = new Error ('password dooes now match.')
+        }
+    }
+    
+    )
+})
 
 })
 model.exports=router
