@@ -48,9 +48,11 @@ router.post('/login',(req,res,next)=>{
             let err = new Error ('password dooes now match.')
         }
     }
+
     
     )
 })
 
 })
+
 model.exports=router
