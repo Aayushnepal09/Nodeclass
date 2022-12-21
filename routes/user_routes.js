@@ -20,21 +20,25 @@ router.post('/register',(req,res,next)=>{
                 let user=new User()
                 user.username=req.body.username,
                 user.password=hash
+                if(req.body.role)user.role=req.body.role
                 user.save
                 .then(user=>{
                     res.status(201).json({
                         'statue':'User Registered Sucessfully',
                         userId:user._id,
-                        username:user.username
+                        username:user.username,
+                        role:user.role
 
                     })
                 }).catch(next)
             })
 
         }).catch(next)
-        )
+    )
 
 })
+
+
 router.post('/login',(req,res,next)=>{
     User.findOne({username:req.body.username})
     .then (user=> {
@@ -56,3 +60,4 @@ router.post('/login',(req,res,next)=>{
 })
 
 model.exports=router
+
