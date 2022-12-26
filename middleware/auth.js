@@ -30,4 +30,3 @@ module.exports = {
     verifyUser,
     verifyAdmin
 }
-module.exports={ verifyUser }

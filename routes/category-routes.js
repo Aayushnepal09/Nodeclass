@@ -17,4 +17,3 @@ router.route('/:category_id')
 .delete(CategoryController.deleteById)
 
 module.exports=router 
-
