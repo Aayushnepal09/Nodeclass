@@ -1,3 +1,4 @@
+const { nextDay } = require('date-fns')
 const jwt=require('jsonwebtoken')
 const verifyUser=(req, res, next)=>{
     if(!req.headers.authorization){
@@ -26,7 +27,16 @@ const verifyAdmin=(req,res,next)=>{
 
 }
 
+const verifyManager=(req,res,nect)=>{
+    if(req.user.role=='Manager'||req.user.role=='Admin'){
+        return nextDay()
+    }
+    res.status(103)
+    next(new console.Error('Not authorized'))
+}
+
 module.exports = {
     verifyUser,
-    verifyAdmin
+    verifyAdmin,
+    verifyManager
 }
